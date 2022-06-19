@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="container">
+      <input type="text" value="firstname" id="firstname" />
+      <input type="text" value="lastname" id="lastname" />
+      <button id="generar">Generate</button>
+      <span id="output">generated username...</span>
+    </div>
+
+    <script>
+      const $ = (id) => {
+        return document.getElementById(id);
+      };
+
+      const id_firstname = $("firstname");
+      const id_lastname = $("lastname");
+      const id_generar = $("generar");
+      const id_output = $("output");
+
+      const random = (iniciaEn, terminaEn) => {
+        return Math.floor(Math.random() * (iniciaEn - terminaEn) + terminaEn);
+      };
+
+      id_generar.addEventListener("click", () => {
+        id_output.innerHTML = id_output.innerHTML = (
+          id_firstname.value +
+          "_" +
+          id_lastname.value +
+          "_" +
+          random(1, 9)
+        ).toLowerCase();
+      });
+    </script>
+  </body>
+</html>
